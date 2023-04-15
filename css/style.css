@@ -61,8 +61,13 @@ h2{
 .content .items{
     display: flex;
     gap: 10px;
-    overflow: hidden;
+    overflow: auto;
 }
+
+.content .items::-webkit-scrollbar{
+  display: none;
+}
+
 
 .content .items .list{
     background-color: bisque;
