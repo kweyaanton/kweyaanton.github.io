@@ -1,261 +1,245 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My Portfolio</title>
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	<link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spotify clone</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <div id="mobile-menu-open" class="shadow-large">
-        <i class="fa fa-bars" aria-hidden="true"></i>
+    <div class="header-container">
+
+        <div class="header">
+
+            <div class="logo">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAIy0lEQVR4Ae1WBVRbWxblu7sjCSQhgeBNSnF3h7rbEFwqUG9/DaYuSAWo4e4QvBStwwxaQ2pYBdew5+aNdWrjS/9Zaz9/d+9z7r4i8Vv8uxG0Z+/Hs/gz+SpcpQUcBtNTmyXvrsTluhgaGHBTU1Lf/7+Q3r59W0JDTc1MnsFMlqPR+mWlZSAnQ4M6jY4+Ogf3aGwUSzMRSmc9Xs5kn+Dx+cr/M3K+xgxllhyjXEzKIIQvgBLwjAjoewFPCHJlmKKVDPloI0Ojn/9jYgASXAWFVSTT0ZeJXxXwKrrpbByjMx/zlVUM/m3y6elpCS5HYT2TLitSVlAEEfEKOV1KGgqSUkiTksNlGRZ6XieExkEqjTWsraJq9W8JUOYqLSKkIk0eD6mpqdi4YQPYDCbE3WBnY4OI0xGoq6tDV1cXHj16hJqaGkQdPIQQbX200OTR+5KQGBprkMfjqf9L5HraOrKEvN9d4AatmTOxZdNm2FnbYKbGDAgzM/G2mJqaQkxoGBLZSiT7FyvBxg5ZVuPqVas//qcCiNMTxWXX1dJGWmoa5s+ZCzNjEyrTyeYWjBUU4k0x+ccGjBWX4tq1azirpA7KlBpaGNp3EPdkObCU56x/K7m+rh6blFn0++Bg3LxxA95eXlBTVkFnZycAQDQ1gWeOczBeUvYqeXMznuqbQDQ6jOlpESrKyyGksTB06Cgm6urRv8oNx+ms7qDde95cBQ5LPliJZG9haoakpCSqz2NjYjA9NYn75QdwL28jukICMLhlO16O4ZAw9O5bj/a8rWgr3IaJ4T6EBATiqaU9+t298czOBS10NlQVuS5vdD4xWj3pc8p4B/bvB5kDMDk5gaGuBnQU78LDquPoLTiNwYTzeHxJiN7eXoI+dN8l2R8JwvOLaegs30+JfXanBB3t95AizcBYvhDjNbV4ZmoNTxYn6vVT7N6gz+nSMuOLFy7C6VOnsIScN2/ciKHHf8BwdxPai3aQzLbjUe0p1FYUY2h4BMGkq7Zs2YLBoWFcqbmIx3UpaBNuId/+iv72KvR31OKkDamApx+eOczGUx1jHGFy6l8rwNjAkC3ziyQy0tMJ8SaIjRgXG4vhnlbSWDW6b8RQDd/K3Yy6K2Xof/4ES5cuhZOTE5709aC35xGacrajrWAbHlQex0hvK6lCKaI2bET/nIWYuFGHgTWBiJCV7+/r63v31bGvyFWVkZRCYEAA5QEOk4XQsxtwo+UCCmsO41bVUbRkeKE1bxMeXD2Ph9dj0NPTi+6eHnQ1ZOPhtWjcKdyFJvJNW+leVNeHoupGFHYErsDgohWYaGjEgJc/ImUYo1euXn3ViGSFUxab7vixY9Tw0+Tx4bdbBxcyFyAqdSkh90ZdhgdqLkehobGJwvDIKIWWllZUVFbiemMRrqW7o4GIKM9eRv6dj1XLtPBUXgVP1DTx3GU+ImjM4ba2tldXTddVq3+mSUqJQkNCkBAfD0M9fTgKtBCcvADJaStwN9MHNzPdcS0vEAI3V8ybNw/9AwMEg1i1ajWsrKxQUbifkHuikQi4lLUCiXnO2GqrhucLl2G8mpjQygFhTE7baz1w9+7dd1mycg+VOAqUCZcvWQqeHhcBKXNQkuaK3KzFqMxegeg8RwSf8UF6SurfKiAUChEWsR5701xwKV2AiNQlqMxwRUSuDcKZLAyHncQzp7l4amCObUxOpsSbgs1kRTs7OCJwfQAiIyJBl5KB4Kg1ktKXITtnPs7l2UOYsRI166yxP0GAlOpIlNdFIa7EG9d8DZBP3h1LWUQhO20V3DbqoE3LAOMVldQw7KKzoSvP8X2jADUVVRuyDlDDb96cuRBfaxpwEZ5vhRNCK4Tm2eDQYWuc3maOwKTZ2JrqjJNCKwJrxEeYIHabMQLIczF8zzviMJeDXhobvZIMCgkyzEl7OzvJNwooLi5+lyzBjYsXLkRKSgpOnTxFzYazl6tTJDvTHbH1ghMCkucgkCAo04F6LsYJgpBka+rdungXeBipiPcEf1uQegl+x2RHv0JqV7iY71i8hL+ozI29oMxVWstFRyDO3M1VACKGWvvF9zZz1bA21oUiJiBZzsGxXNu/CSCgKuQV6QAffWV0vkhO4+CCnPy4aaCNgUvxCtqCMgHXpnCBjn3RYgUJk3xnK61sS2jnWEE9yUKkkGgpojuogvHSJkQsgqvMgoufPtZEO2Fz6myczKeIcbqQeCLODN4efESy5NHz4lJMcIMmD0WvWVBMsAQvheIC4Ry0L1oiK5HWlvOuXq5tvS5x7C+b9fGVlza+WquLnyyUIamtABkVFmSZspQAxl8gJ02DOo8NC0sugs2VcUSVgwxpFiFm4wlBFyFtZCsgT0MJIXqqUHdUx1fr9PCVhzaYB4wg5jLItY8WTYskJIzyHN1nZVtQqigB5CMxjIJWwOGwFxjrLPGjjz6+cNXE18v5+GYRD9/Nm4HvZ2vgFxcNzHbhwW4OHybz+dBcPBPMlTPxvZsWfvA1hOImB6hvcYbTEe+/tcsgArQIF+GctBTO0ZPwrt745aoKP5Zt4UL1X/z0r4s/+tJdCzGVWQg8H4SK5qvYl3EKCVU5OJJ7BrtTQuB2egs2JxzG9uRj4G2bA8+zO7GTPD+Wfx570sPJ9XGcLIwlxoxGRdMVRJO2SJuUANoGo/NzSlaqrq7wp627vP0fp2Saj1Hsl26aoi/cZkEQuQ2frZ6BwvpK+J/dhfz6CqTWCpF3vZS6z7pShPwbF3EoJwqVTddgEbySDL09iChNwp7UUJwujsfy8EAsI5hz3A9fuJEKus0alfUzWSvxtlgbt/9L1hpzE0lvA/+fvPWjvhVoVvzgqXufE2AzKuVrJDINXkWV1CxoJWz2C+BwyBOzts+F2mYnKG92BGe9lehrd63hHz117/7opVf0k5d+iJSPoUA50FbzZGkSlfF/tE2PrxV+arrfVVJr2xxlxfVWWlJ+xiZfe+qYfeOpaybrb2qkGmCjqbl9Htc5ZM2PRY21H/6rbf8WfwJLpkWypI6u+gAAAABJRU5ErkJggg==">
+            </div>
+
+            <div class="navigation">
+                <ul>
+                    <li>
+                        <a href="#"></a>
+                        <span>Home Page</span>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                        <span>Team</span>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                        <span>About</span>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                        <span>Support Us</span>
+                    </li>
+
+                    <li>
+                        <div class="fa-solid fa-bars">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
     </div>
-    <!-- End #mobile-menu-toggle -->
-    <header>
-        <div id="mobile-menu-close">
-            <span>Close</span> <i class="fa fa-times" aria-hidden="true"></i>
-        </div>
-        <ul id="menu" class="shadow">
-            <li>
-                <a href="#about">About</a>
-            </li>
-            <li>
-                <a href="#experience">Experience</a>
-            </li>
-            <li>
-                <a href="#education">Education</a>
-            </li>
-            <li>
-                <a href="#projects">Projects</a>
-            </li>
-            <li>
-                <a href="#skills">Skills</a>
-            </li>
-            <li>
-                <a href="#contact">Contact</a>
-            </li>
-        </ul>
-    </header>
-    <!-- End header -->
 
-    <div id="lead">
-        <div id="lead-content">
-            <h1>KWEYA ANTHONY</h1>
-            <br>
-            <br>
-            <a href="#" class="btn-rounded-white">Download Resume</a>
-        </div>
-        <!-- End #lead-content -->
+    <div class="content">
+        <h2 style="font-family: 'Montserrat', sans-serif;">LATEST CONTENT</h2>
+        <div class="items">
 
-        <div id="lead-overlay"></div>
+            <div class="list">
 
-        <div id="lead-down">
-            <span>
-                <i class="fa fa-chevron-down" aria-hidden="true"></i>
-            </span>
-        </div>
-        <!-- End #lead-down -->
-    </div>
-    <!-- End #lead -->
-
-    <div id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h2 class="heading">About Me</h2>
+                
+                <div class="content-img">
+                    <img src="https://i.ytimg.com/vi/eivJ4vKsr2w/hqdefault.jpg?sqp=-oaymwE2COADEI4CSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB1AaAAuADigIMCAAQARhSIFkoZTAP&rs=AOn4CLDXddDJygn6LkDZFlbgiD6A2MPStQ">
                 </div>
-                <div class="col-md-8">
-                    <p>
-                        I am a dedicated software engineer with a passion for developing innovative solutions to complex problems. With a strong background in programming languages such as Python, C, C++, Dart, JavaScript, and Git, I specialize in developing robust and scalable software applications. My skills in HTML, CSS, and MySQL allow me to create visually appealing and interactive user interfaces, and my attention to detail ensures that the user experience is seamless. When I'm not writing code, you can find me exploring new technologies, attending tech conferences and i also like participating in sports activities especially football .
-                        </p>
+                <div class="article">
+                    <p style="font-family: 'Montserrat', sans-serif;">trip to nairobi</p>
+                    <a href="#">read more</a>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- End #about -->
 
-    <div id="experience" class="background-alt">
-        <h2 class="heading">Experience</h2>
-        <div id="experience-timeline">
-            <div data-date="September 2015 – September 2016">
-                <h3>Employer Name</h3>
-                <h4>Job Title</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam volutpat laoreet urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget efficitur libero. Morbi dapibus porta quam laoreet placerat.
-                </p>
             </div>
 
-            <div data-date="September 2015 – September 2016">
-                <h3>Employer Name</h3>
-                <h4>Job Title</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam volutpat laoreet urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget efficitur libero. Morbi dapibus porta quam laoreet placerat.
-                </p>
-            </div>
 
-            <div data-date="September 2015 – September 2016">
-                <h3>Employer Name</h3>
-                <h4>Job Title</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam volutpat laoreet urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget efficitur libero. Morbi dapibus porta quam laoreet placerat.
-                </p>
-            </div>
-        </div>
-    </div>
-    <!-- End #experience -->
-
-    <div id="education">
-        <h2 class="heading">Education</h2>
-        <div class="education-block">
-            <h3>University of Ottawa</h3>
-            <span class="education-date">Sept 2016 - Sept 2017</span>
-            <h4>Bachelor of Science in Computer Science</h4>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam volutpat laoreet urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget efficitur libero. Morbi dapibus porta quam laoreet placerat.
-            </p>
-        </div>
-        <!-- End .education-block -->
-
-        <div class="education-block">
-            <h3>University of Ottawa</h3>
-            <span class="education-date">Sept 2016 - Sept 2017</span>
-            <h4>Bachelor of Science in Computer Science</h4>
-            <ul>
-                <li>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </li>
-                <li>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </li>
-                <li>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </li>
-            </ul>
-        </div>
-        <!-- End .education-block -->
-    </div>
-    <!-- End #education -->
-
-    <div id="projects" class="background-alt">
-        <h2 class="heading">Projects</h2>
-        <div class="container">
-            <div class="row">
-                <div class="project shadow-large">
-                    <div class="project-image">
-                        <img src="images/project.jpg" />
-                    </div>
-                    <!-- End .project-image -->
-                    <div class="project-info">
-                        <h3>Project Name Here</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam volutpat laoreet urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget efficitur libero. Morbi dapibus porta quam laoreet placerat.
-                        </p>
-                        <a href="#">View Project</a>
-                    </div>
-                    <!-- End .project-info -->
+            <div class="list">
+                <div class="content-img">
+                    <img src="https://i.ytimg.com/an_webp/8NTlTpHllss/mqdefault_6s.webp?du=3000&sqp=CPmx6aEG&rs=AOn4CLC6X804i1xPZPSd7OyzISKmbjBgmw">
                 </div>
-                <!-- End .project -->
-
-                <div class="project shadow-large">
-                    <div class="project-image">
-                        <img src="images/project.jpg" />
-                    </div>
-                    <!-- End .project-image -->
-                    <div class="project-info">
-                        <h3>Project Name Here</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam volutpat laoreet urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget efficitur libero. Morbi dapibus porta quam laoreet placerat.
-                        </p>
-                        <a href="#">View Project</a>
-                    </div>
-                    <!-- End .project-info -->
+                <div class="article">
+                    <p style="font-family: 'Montserrat', sans-serif;">youth training</p>
+                    <a href="#">read more</a>
                 </div>
-                <!-- End .project -->
+                
+
             </div>
+
+            <div class="list">
+                <div class="content-img">
+                    <img src="https://i.ytimg.com/vi/XyN3LxKvS1c/hq720.jpg?sqp=-oaymwE2COgCEMoBSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhcIGUoTTAP&rs=AOn4CLAbxS_Pgeq3nd_FTOj6dc9emPn_zw">
+                </div>
+                <div class="article">
+                    <p style="font-family: 'Montserrat', sans-serif;">ebusakmi vs nairobi</p>
+                    <a href="#">read more</a>
+                </div>
+
+            </div>
+
+
+            <div class="list">
+                <div class="content-img">
+                    <img src="https://i.ytimg.com/an_webp/EZj0p15qBlU/mqdefault_6s.webp?du=3000&sqp=CNWE6aEG&rs=AOn4CLBE4ZPQm7y8gF8kWicPfkpDbBydTA">
+                </div>
+                <div class="article">
+                    <p style="font-family: 'Montserrat', sans-serif;">trip to nairobi</p>
+                    <a href="#">read more</a>
+                </div>
+
+            </div>
+
+            <div class="list">
+                <div class="content-img">
+                    <img src="https://i.ytimg.com/an_webp/EZj0p15qBlU/mqdefault_6s.webp?du=3000&sqp=CNWE6aEG&rs=AOn4CLBE4ZPQm7y8gF8kWicPfkpDbBydTA">
+                </div>
+                <div class="article">
+                    <p style="font-family: 'Montserrat', sans-serif;">trip to nairobi</p>
+                    <a href="#">read more</a>
+                </div>
+
+            </div>
+
+
+
+
         </div>
-    </div>
-    <!-- End #projects -->
 
-    <div id="skills">
-        <h2 class="heading">Skills</h2>
-        <ul>
-            <li>JavaScript</li>
-            <li>Python</li>
-            <li>Ruby</li>
-            <li>Go</li>        
-            <li>Node.js</li>
-            <li>React</li>
-            <li>C</li>
-            <li>C++</li>
-            <li>Ruby on Rails</li>
-        </ul>
-    </div>
-    <!-- End #skills -->
 
-    <div id="contact">
-        <h2>Get in Touch</h2>
-        <div id="contact-form">
-            <form method="POST" action="https://formspree.io/email@email.com">
-                <input type="hidden" name="_subject" value="Contact request from personal website" />
-                <input type="email" name="_replyto" placeholder="Your email" required>
-                <textarea name="message" placeholder="Your message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
+    <hr>
+
+
+        <h2 style="font-family: 'Montserrat', sans-serif;">NEWS</h2>
+        <div class="items">
+
+            <div class="list">
+
+                
+                <div class="content-img">
+                    <img src="https://i.ytimg.com/vi/eivJ4vKsr2w/hqdefault.jpg?sqp=-oaymwE2COADEI4CSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB1AaAAuADigIMCAAQARhSIFkoZTAP&rs=AOn4CLDXddDJygn6LkDZFlbgiD6A2MPStQ">
+                </div>
+                <div class="article">
+                    <p style="font-family: 'Montserrat', sans-serif;">trip to nairobi</p>
+                    <a href="#">read more</a>
+                </div>
+
+            </div>
+
+
+            <div class="list">
+                <div class="content-img">
+                    <img src="https://i.ytimg.com/an_webp/8NTlTpHllss/mqdefault_6s.webp?du=3000&sqp=CPmx6aEG&rs=AOn4CLC6X804i1xPZPSd7OyzISKmbjBgmw">
+                </div>
+                <div class="article">
+                    <p style="font-family: 'Montserrat', sans-serif;">youth training</p>
+                    <a href="#">read more</a>
+                </div>
+                
+
+            </div>
+
+            <div class="list">
+                <div class="content-img">
+                    <img src="https://i.ytimg.com/vi/eivJ4vKsr2w/hqdefault.jpg?sqp=-oaymwE2COADEI4CSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB1AaAAuADigIMCAAQARhSIFkoZTAP&rs=AOn4CLDXddDJygn6LkDZFlbgiD6A2MPStQ">
+                </div>
+                <div class="article">
+                    <p style="font-family: 'Montserrat', sans-serif;">trip to nairobi</p>
+                    <a href="#">read more</a>
+                </div>
+
+            </div>
+
+
+            <div class="list">
+                <div class="content-img">
+                    <img src="https://i.ytimg.com/an_webp/EZj0p15qBlU/mqdefault_6s.webp?du=3000&sqp=CNWE6aEG&rs=AOn4CLBE4ZPQm7y8gF8kWicPfkpDbBydTA">
+                </div>
+                <div class="article">
+                    <p style="font-family: 'Montserrat', sans-serif;">trip to nairobi</p>
+                    <a href="#">read more</a>
+                </div>
+
+            </div>
+
+
         </div>
-        <!-- End #contact-form -->
-    </div>
-    <!-- End #contact -->
 
+        <!-- end of content -->
+    </div>
+    <!-- banner -->
+    	
     <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-5 copyright">
-                    <p>
-                        Copyright &copy; <span id="current-year">2022</span> YOUR NAME
-                    </p>
-                </div>
-                <div class="col-sm-2 top">
-                    <span id="to-top">
-                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
-                    </span>
-                </div>
-                <div class="col-sm-5 social">
-                    <ul>
-                        <li>
-                            <a href="https://github.com/" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://stackoverflow.com/" target="_blank"><i class="fa fa-stack-overflow" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://linkedin.com/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://plus.google.com/" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                        </li>
-                    </ul>
-                </div>
+        <div class="content">
+          <div class="top">
+            <div class="logo-details">
+              <i class="fab fa-slack"></i>
+              <span class="logo_name">Find Us On</span>
             </div>
+            <div class="media-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="link-boxes">
+            <ul class="box">
+              <li class="link_name">Company</li>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Contact us</a></li>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Get started</a></li>
+            </ul>
+            <ul class="box">
+              <li class="link_name">Services</li>
+              <li><a href="#">App design</a></li>
+              <li><a href="#">Web design</a></li>
+              <li><a href="#">Logo design</a></li>
+              <li><a href="#">Banner design</a></li>
+            </ul>
+            <ul class="box">
+              <li class="link_name">Account</li>
+              <li><a href="#">Profile</a></li>
+              <li><a href="#">My account</a></li>
+              <li><a href="#">Prefrences</a></li>
+              <li><a href="#">Purchase</a></li>
+            </ul>
+            <ul class="box">
+              <li class="link_name">Courses</li>
+              <li><a href="#">Lorem</a></li>
+              <li><a href="#">Lorem</a></li>
+              <li><a href="#">Lorem</a></li>
+              <li><a href="#">Lorem</a></li>
+            </ul>
+            <ul class="box input-box">
+              <li class="link_name">Subscribe</li>
+              <li><input type="text" placeholder="Enter your email"></li>
+              <li><input type="button" value="Subscribe"></li>
+            </ul>
+          </div>
         </div>
-    </footer>
-    <!-- End footer -->
+        <div class="bottom-details">
+          <div class="bottom_text">
+            <span class="copyright_text">Copyright © 2021 <a href="#">CodingLab.</a>All rights reserved</span>
+            <span class="policy_terms">
+              <a href="#">Privacy policy</a>
+              <a href="#">Terms & condition</a>
+            </span>
+          </div>
+        </div>
+      </footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/scripts.min.js"></script>
+    <script src="https://kit.fontawesome.com/3018550d2d.js" crossorigin="anonymous"></script>
 </body>
-
 </html>
